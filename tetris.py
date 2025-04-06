@@ -108,8 +108,9 @@ class TetrisApp:
 
     def move(self,dx, dy):
         """Move the current piece if possible """
-       # self.current_piece_x = self.current_piece_x + dx
-        #self.current_piece_y = self.current_piece_y + dy
+        if not self.check_collision(self.current_piece_x + dx, self.current_piece_y + dy, self.current_piece):
+            self.current_piece_x += dx
+            self.current_piece_y +=  dy
 
         if not self.check_collision(dx,dy,self.current_piece):
             self.current_piece_x += dx
